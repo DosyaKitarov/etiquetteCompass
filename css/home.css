@@ -13,6 +13,11 @@
     border-radius: 50%;
 }
 
+.video {
+    width: 70vw;
+    height: 40vw;
+}
+
 .card-circle .card-title {
     font-weight: 500;
     font-size: 26px;

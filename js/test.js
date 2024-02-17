@@ -98,12 +98,10 @@ fetch("../js/qa.json")
     .then(response => response.json())
     .then(data => {
         correctAnswers = data[4];
-        console.log(correctAnswers); // Log correct answers
     })
     .catch(error => console.log(error))
 
 function getCorrectAnswer(questionNumber) {
-    // Return the correct answer based on the question number
     switch (questionNumber) {
         case 1:
             return correctAnswers["1"];

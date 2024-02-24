@@ -18,9 +18,10 @@ function start() {
     }, 2000);
     test.style.display = 'block';
 };
-var lists = document.querySelectorAll('.list-group');
+var lists = document.querySelectorAll('.question');
 
 function checkLists() {
+    console.log(lists.length)
     for (var i = 0; i < lists.length; i++) {
         var radioButtons = lists[i].querySelectorAll('input[type="radio"]');
         var isChecked = false;
@@ -31,9 +32,11 @@ function checkLists() {
             }
         }
         if (!isChecked) {
+            console.log('not checked')
             return false;
         }
     }
+    console.log('checked')
     return true;
 }
 
@@ -94,10 +97,11 @@ function finish() {
 
 }
 var correctAnswers;
+var index = document.getElementById('index');
 fetch("../js/qa.json")
     .then(response => response.json())
     .then(data => {
-        correctAnswers = data[4];
+        correctAnswers = data[index.innerText];
     })
     .catch(error => console.log(error))
 

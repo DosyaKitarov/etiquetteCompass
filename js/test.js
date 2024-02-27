@@ -52,8 +52,18 @@ lists.forEach(function(list) {
 });
 
 var correctAnswersCount = 0;
+var correctAnswers;
+var index = document.getElementById('index');
+fetch("../js/qa.json")
+    .then(response => response.json())
+    .then(data => {
+        correctAnswers = data[index.innerText];
+    })
+    .catch(error => console.log(error))
 
 function finish() {
+
+    console.log(correctAnswers)
     var totalQuestions = lists.length;
 
     for (var i = 0; i < lists.length; i++) {
@@ -96,14 +106,6 @@ function finish() {
     correct.innerHTML = correctAnswersCount;
 
 }
-var correctAnswers;
-var index = document.getElementById('index');
-fetch("../js/qa.json")
-    .then(response => response.json())
-    .then(data => {
-        correctAnswers = data[index.innerText];
-    })
-    .catch(error => console.log(error))
 
 function getCorrectAnswer(questionNumber) {
     switch (questionNumber) {
